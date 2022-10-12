@@ -29,7 +29,11 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Hahadu\\Documentarian\\": "extends/hahadu/documentarian/src/",
+            "Hahadu\\ApiDoc\\": "extends/hahadu/laravel-apidoc-generator/src/",
+            "Hahadu\\PostmanApi\\": "extends/hahadu/php-postman-api/src/",
+            "Hahadu\\Reflector\\": "extends/hahadu/reflector/src/"
         }
     },
     "scripts": {
