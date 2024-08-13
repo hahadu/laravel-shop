@@ -19,6 +19,8 @@ return new class extends Migration {
             //$table->char('account', 32)->index()->default('')->comment('用户账号');
             //$table->char('pwd', 32)->default('')->comment('用户密码');
 
+
+
             $table->char('real_name', 25)->default('')->comment('真实姓名');
             $table->integer('birthday')->default(0)->comment('生日');
             $table->char('card_id', 20)->default('')->comment('身份证号码');
@@ -26,7 +28,7 @@ return new class extends Migration {
             $table->integer('partner_id')->default(0)->comment('合伙人id');
             $table->integer('group_id')->default(0)->comment('用户分组id');
             $table->char('nickname', 60)->default('')->comment('用户昵称');
-            $table->char('avatar', 256)->default('')->comment('用户头像');
+            $table->char('avatar', 255)->default('')->comment('用户头像');
             $table->char('phone', 15)->index()->default('')->comment('手机号码');
             $table->integer('add_time')->unsigned()->default('0')->comment('添加时间');
             $table->char('add_ip', 16)->default('')->comment('添加ip');
@@ -35,13 +37,13 @@ return new class extends Migration {
             $table->decimal('now_money', 12,)->default(0.00)->comment('用户余额');
             $table->decimal('brokerage_price', 12,)->default(0.00)->comment('佣金金额');
             $table->integer('integral')->unsigned()->default('0')->comment('用户剩余积分');
-            $table->decimal('exp', 12,)->default(0.00)->comment('会员经验');
+            $table->decimal('exp', 12)->default(0.00)->comment('会员经验');
             $table->integer('sign_num')->default(0)->comment('连续签到天数');
-            $table->tinyInteger('sign_remind', 1)->default(0)->comment('签到提醒状态');
-            $table->tinyInteger('status', 1)->index()->default(1)->comment('1为正常，0为禁止');
+            $table->tinyInteger('sign_remind')->default(0)->comment('签到提醒状态');
+            $table->tinyInteger('status')->index()->default(1)->comment('1为正常，0为禁止');
             $table->tinyInteger('level')->index()->unsigned()->default('0')->comment('等级');
             $table->integer('agent_level')->default(0)->comment('分销等级');
-            $table->tinyInteger('spread_open', 1)->index()->default(1)->comment('是否有推广资格');
+            $table->tinyInteger('spread_open')->index()->default(1)->comment('是否有推广资格');
             $table->integer('spread_uid')->unsigned()->default('0')->comment('推广元id');
             $table->integer('spread_time')->unsigned()->default('0')->comment('推广员关联时间');
             $table->char('user_type', 32)->default('')->comment('用户类型');
@@ -53,16 +55,16 @@ return new class extends Migration {
             $table->integer('adminid')->unsigned()->default('0')->comment('管理员编号');
             $table->char('login_type', 36)->default('')->comment('用户登陆类型，h5,wechat,routine');
             $table->char('record_phone', 11)->default('0')->comment('记录临时电话');
-            $table->tinyInteger('is_money_level', 1)->index()->default(0)->comment('会员来源  0: 购买商品升级   1：花钱购买的会员2: 会员卡领取');
-            $table->tinyInteger('is_ever_level', 1)->index()->default(0)->comment('是否永久性会员  0: 非永久会员  1：永久会员');
+            $table->tinyInteger('is_money_level')->index()->default(0)->comment('会员来源  0: 购买商品升级   1：花钱购买的会员2: 会员卡领取');
+            $table->tinyInteger('is_ever_level')->index()->default(0)->comment('是否永久性会员  0: 非永久会员  1：永久会员');
             $table->bigInteger('overdue_time')->default(0)->comment('会员到期时间');
             $table->char('uniqid', 32)->index()->default('')->comment('用户唯一值');
             $table->char('division_name', 255)->default('')->comment('事业部/代理商名称');
-            $table->tinyInteger('division_type', 1)->index()->default(0)->comment('代理类型：0普通，1事业部，2代理，3员工');
-            $table->tinyInteger('division_status', 1)->index()->default(0)->comment('代理状态');
-            $table->tinyInteger('is_division', 1)->index()->default(0)->comment('事业部状态');
-            $table->tinyInteger('is_agent', 1)->index()->default(0)->comment('代理状态');
-            $table->tinyInteger('is_staff', 1)->index()->default(0)->comment('员工状态');
+            $table->tinyInteger('division_type')->index()->default(0)->comment('代理类型：0普通，1事业部，2代理，3员工');
+            $table->tinyInteger('division_status')->index()->default(0)->comment('代理状态');
+            $table->tinyInteger('is_division')->index()->default(0)->comment('事业部状态');
+            $table->tinyInteger('is_agent')->index()->default(0)->comment('代理状态');
+            $table->tinyInteger('is_staff')->index()->default(0)->comment('员工状态');
             $table->integer('division_id')->default(0)->comment('事业部id');
             $table->integer('agent_id')->default(0)->comment('代理商id');
             $table->integer('staff_id')->default(0)->comment('员工id');
@@ -70,7 +72,10 @@ return new class extends Migration {
             $table->integer('division_change_time')->default(0)->comment('事业部/代理/员工修改时间');
             $table->integer('division_end_time')->default(0)->comment('事业部/代理/员工结束时间');
             $table->integer('division_invite')->default(0)->comment('代理商邀请码');
-            $table->tinyInteger('is_del', 1)->default(0)->comment('是否注销');
+            $table->tinyInteger('is_del')->default(0)->comment('是否注销');
+            $table->dateTime('created_at')->change()->after('is_del')->comment('创建时间');
+            $table->dateTime('updated_at')->change()->after('created_at')->comment('更新时间');
+            $table->softDeletes()->comment('删除时间');
 
 
         });

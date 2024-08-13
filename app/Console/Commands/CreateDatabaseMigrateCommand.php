@@ -41,13 +41,15 @@ class CreateDatabaseMigrateCommand extends Command
 
 //        dump($table_list);
         foreach ($table_list as $table) {
-
+            usleep(100);
             $table_name = reset($table);
             echo app(OutputMigrations::class)->createTableBody(reset($table));
             echo " 成功".PHP_EOL;
+            usleep(5000);
             Str::replace("eb_", "", $table_name);
             echo app(OutputModel::class)->outputModel($table_name);
             echo " 成功".PHP_EOL;
+            usleep(1000);
 
         }
 
