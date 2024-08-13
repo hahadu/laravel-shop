@@ -32,9 +32,16 @@ class SystemAdminService
 
     }
 
-    public function login(string $username,string $password,string $type,string $key='')
+    /**
+     * @throws \Throwable
+     */
+    public function login(string $username, string $password, string $type, string $key='')
     {
         $adminInfo = $this->verifyPasswordLogin($username,$password);
+        $tokenInfo = $adminInfo->createToken('token')->accessToken;
+
+
+
 
 
     }

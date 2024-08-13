@@ -30,8 +30,8 @@ return new class extends Migration {
             $table->integer('division_id')->default(0)->comment('事业部id');
 
             //$table->tinyInteger('is_del')->unsigned()->default(0)->comment('是否删除, ');
-            $table->dateTime('created_at')->comment('创建时间')->nullable();
-            $table->dateTime('updated_at')->comment('修改时间');
+            $table->dateTime('created_at')->comment('创建时间');
+            $table->dateTime('updated_at')->comment('修改时间')->nullable();
             $table->softDeletes()->comment('删除时间');
         });
         $this->setTableComment($this->table_name, '后台管理员表');

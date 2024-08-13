@@ -16,10 +16,6 @@ return new class extends Migration {
     {
 
         Schema::table($this->table_name, function (Blueprint $table) {
-            //$table->char('account', 32)->index()->default('')->comment('用户账号');
-            //$table->char('pwd', 32)->default('')->comment('用户密码');
-
-
 
             $table->char('real_name', 25)->default('')->comment('真实姓名');
             $table->integer('birthday')->default(0)->comment('生日');
