@@ -2,14 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Models\User;
 use Hahadu\DatabaseToMigration\OutputMigrations;
 use Hahadu\DatabaseToMigration\OutputModel;
 use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class CreateDatabaseMigrateCommand extends Command
