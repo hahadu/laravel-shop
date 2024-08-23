@@ -8,6 +8,7 @@
 /vendor
 /migration_old
 /model_old
+/app/Console/Commands/Testuu.php
 .env
 .env.backup
 .env.production
@@ -21,3 +22,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/stubs

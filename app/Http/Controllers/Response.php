@@ -34,7 +34,9 @@ trait Response
             'request_id' => request()->__request_id,
             'message' => $message,
             'data' => $data
-        ])->setEncodingOptions(JSON_UNESCAPED_UNICODE)->header('Access-Control-Allow-Origin','*')
-            ->header('Access-Control-Request-Method','GET,POST,PUT');
+        ])->setEncodingOptions(JSON_UNESCAPED_UNICODE)
+            //->header('Access-Control-Allow-Origin','*')
+            //->header('Access-Control-Request-Method','GET,POST,PUT')
+            ;
     }
 }

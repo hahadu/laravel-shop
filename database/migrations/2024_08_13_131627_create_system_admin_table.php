@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->char('real_name',16)->default('')->comment('后台管理员姓名');
             $table->char('roles',128)->default('')->comment('后台管理员权限(menus_id)');
             $table->char('last_ip',16)->default('')->comment('后台管理员最后一次登录ip');
-            $table->integer('last_time')->unsigned()->default(0)->comment('后台管理员最后一次登录时间');
+            $table->dateTime('last_time')->comment('后台管理员最后一次登录时间');
         //    $table->dateTime('add_time')->unsigned()->default(0)->comment('后台管理员添加时间');
             $table->integer('login_count')->unsigned()->default(0)->comment('登录次数');
             $table->tinyInteger('level')->unsigned()->default(1)->comment('后台管理员级别');

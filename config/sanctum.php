@@ -39,14 +39,14 @@ return [
     |--------------------------------------------------------------------------
     | Expiration Minutes
     |--------------------------------------------------------------------------
-    |
+    | 令牌有效期7天
     | This value controls the number of minutes until an issued token will be
     | considered expired. This will override any values set in the token's
     | "expires_at" attribute, but first-party sessions are not affected.
     |
     */
 
-    'expiration' => null,
+    'expiration' => 152000,
 
     /*
     |--------------------------------------------------------------------------
